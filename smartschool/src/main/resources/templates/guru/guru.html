@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Smart School Batch 5</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="container-md mt-3 border">
+  <h5>Smart School</h5>
+  <h5>Batch 5</h5>
+  </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-3 col-lg-2 bg-muted border">
+      <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Pelajaran</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Guru</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Kelas</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Barang</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Distributor</a>
+    </li>
+  </ul>
+    </div>
+    <div class="col-sm-9 col-md-6 col-lg-10 border">
+    <div class="mt-3 table-responsive">
+      <table class="table table-bordered">
+     <h5>Data Guru</h5>
+     <ul class="pagination justify-content-end">
+     <a class=" nav-link" href="#">+tambah</a>
+     </ul>
+	<thead class="thead-dark">
+		<td>NIP</td>
+		<td>Nama Guru</td>
+		<td>Telepon</td>
+		<td >Edit</td>
+		<td>Delete</td>
+		<td>Detail</td>
+	</thead>
+	<tr th:each = "guruModel:${guruModelList}">
+	<!-- lalu dimasukan ke td nya -->
+		<td th:text="${guruModel.nipGuru}"></td>
+		<td th:text="${guruModel.namaGuru}"></td>
+		<td th:text="${guruModel.teleponGuru}"></td>
+		<td><a class="nav-link" href="#">edit</a></td>
+		<td><a class="nav-link" href="#">delete</a></td>
+		<td><a class="nav-link" href="#">detail</a></td>
+	</tr>
+
+	</table>
+	<ul class="pagination justify-content-end">
+    <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+	</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-md mt-3 border">
+<form th:action="@{/guru/create}">
+    <div class="form-group">
+      <table>
+
+<tr>
+	<td>NIP</td>
+	<td><input class="mt-3" type="text" name="nipGuru" id="idNip"></td>	
+</tr>
+<tr>
+	<td >Nama Guru</td>
+	<td><input class="mt-3" type="text" name="namaGuru" id="idNamaGuru"></td>	
+</tr>
+<tr>
+	<td>Telepon</td>
+	<td><input class="mt-3" type="text" name="teleponGuru" id="idTelepon"></td>	
+</tr>
+<tr>
+	<td>Gender </td>
+	<td><input class="mt-2" name="genderGuru" type="radio" id="idGender"> Pria
+	<input name="genderGuru" type="radio" id="idGender"> Wanita</td>	
+</tr>
+<tr>
+	<td>Gelar</td>
+	<td>
+	<select id="idGelar" name="gelarGuru">
+		<option>S.pD</option>
+		<option>Sag</option>
+	</select>
+	</td>	
+</tr>
+<tr>
+	<td>Alamat</td>
+	<td><textarea class="mt-3" name="alamatGuru" id="idAlamat"> </textarea></td>	
+</tr>
+<tr> 
+		<td></td>
+		<td><button type="submit" class="btn btn-primary">Submit</button>
+		</td>
+		
+	</tr>	    
+    </table>
+    </div>
+  </form>
+</div>
+</div>
+</body>
+</html>
